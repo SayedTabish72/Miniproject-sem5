@@ -14,7 +14,7 @@
     
     <!-- fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans|Maven+Pro:500' rel='stylesheet' type='text/css'>
-    
+
     <title>Codespace</title>
 </head>
 
@@ -27,23 +27,166 @@
         <div class="collapse navbar-collapse" id="btn">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link mx-3 text-white fs-5">Home</a>
+                    <a href="/homepage/index.html" class="nav-link mx-3 text-white fs-5">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link mx-3 text-white fs-5">About</a>
+                    <a href="/homepage/About/About.html" class="nav-link mx-3 text-white fs-5">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link mx-3 text-white fs-5">Services</a>
+                    <a href="/homepage/Service/Service.html" class="nav-link mx-3 text-white fs-5">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link mx-3 text-white fs-5">News</a>
+                    <a href="/homepage/Developer/Developer.html" class="nav-link mx-3 text-white fs-5">Developer</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link mx-3 text-white fs-5">Contact</a>
+                    <a href="/homepage/Contect/Contect.html" class="nav-link mx-3 text-white fs-5">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <!-- ViewPoint Scroll bar -->
+    <div class="point-view-scrollbar">
+        <header>
+            <h1>Scroll Indicator</h1>
+            <h3>
+              An animated scroll button.
+            </h3>
+            <a href="https://sid-d-harth.github.io/My-Portfolio/">Sidharth shakya</a>
+          </header>
+          
+          
+          <section class="main">
+          <a class="arrow-wrap" href="#content">
+          <span class="arrow"></span>
+          <!--<span class="hint">scroll</span>-->
+          </a>
+            
+            <div class="content" id="content">
+              <h1>Content Section</h1>
+              <p>
+                The purpose of this arrow demo is to indicate that there is further content down the page. While studies have generally shown that users <em>do, in fact,</em> scroll (thus killing the worries about page fold), it still has become somewhat fashionable to indicate scroll intent.
+              </p>
+              <p>
+                A subtle animation triggered after a period of time draws attention to the scroll indicator. Some jQuery hides the indicator after the user begins scrolling.
+              </p>
+              <h2>
+                The CSS
+              </h2>
+              <pre>
+          .arrow-wrap {
+            position:absolute;
+            z-index:1;
+            left:50%;
+            top:-5em;
+            margin-left:-5em;
+            background:#111;
+            width:10em;
+            height:10em;
+            padding:4em 2em;
+            border-radius:50%;
+            font-size:0.5em;
+            display:block;
+          }
+          
+          .arrow {
+            float:left;
+            position:relative;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 3em 3em 0 3em;
+            border-color: #ffffff transparent transparent transparent;
+            -webkit-transform:rotate(360deg)
+          }
+          
+          .arrow:after {
+            content:'';
+            position:absolute;
+            top:-3.2em;
+            left:-3em;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 3em 3em 0 3em;
+            border-color: #111 transparent transparent transparent;
+            -webkit-transform:rotate(360deg)
+          }
+              </pre>
+              <h2>Animation</h2>
+              <p>Be sure to use the correct vendor-prefixes</p>
+              <pre>
+            @-webkit-keyframes arrows {
+              0% { top:0; }
+              10% { top:12%; }
+              20% { top:0; }
+              30% { top:12%; }
+              40% { top:-12%; }
+              50% { top:12%; }
+              60% { top:0; }
+              70% { top:12%; }
+              80% { top:-12%; }
+              90% { top:12%; }
+              100% { top:0; }
+            }
+            
+            .arrow-wrap .arrow {
+              -webkit-animation: arrows 2.8s 0.4s;
+              -webkit-animation-delay: 3s;
+            }
+              </pre>
+              <p>
+                Read more at 
+            <a href="https://sid-d-harth.github.io/My-Portfolio/">सिद्धार्थ शाक्य</a>
+              </p>
+            </div>
+            <script>
+                //this is where we apply opacity to the arrow
+$(window).scroll( function(){
+
+    //get scroll position
+    var topWindow = $(window).scrollTop();
+    //multipl by 1.5 so the arrow will become transparent half-way up the page
+    var topWindow = topWindow * 1.5;
+    
+    //get height of window
+    var windowHeight = $(window).height();
+        
+    //set position as percentage of how far the user has scrolled 
+    var position = topWindow / windowHeight;
+    //invert the percentage
+    position = 1 - position;
+  
+    //define arrow opacity as based on how far up the page the user has scrolled
+    //no scrolling = 1, half-way up the page = 0
+    $('.arrow-wrap').css('opacity', position);
+  
+  });
+  
+  
+  
+  
+  
+  
+  //Code stolen from css-tricks for smooth scrolling:
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+            </script>
+          </section>
+          
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -51,6 +194,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
